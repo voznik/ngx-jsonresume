@@ -1,0 +1,167 @@
+{
+  "name": "Richard Hendriks",
+  "info": {
+    "label": "Programmer",
+    "image": "http://www.piedpiper.com/app/themes/pied-piper/dist/images/richard.png",
+    "brief": "Richard hails from Tulsa. He has earned degrees from the University of Oklahoma and Stanford. (Go Sooners and Cardinals!) Before starting Pied Piper, he worked for Hooli as a part time software developer. While his work focuses on applied information theory, mostly optimizing lossless compression schema of both the length-limited and adaptive variants, his non-work interests range widely, everything from quantum computing to chaos theory. He could tell you about it, but THAT would NOT be a “length-limited” conversation!"
+  },
+  "contact": {
+    "email": "richard.hendriks@piedpiper.com",
+    "phone": "(912) 555-4321",
+    "website": "http://piedpiper.com"
+  },
+  "meta": {
+    "format": "FRESH@^1.0.0-beta",
+    "modified": "2019-08-28T12:11:51.613Z"
+  },
+  "location": {
+    "city": "Palo Alto",
+    "region": "CA",
+    "country": "US",
+    "code": "94303",
+    "address": "Newell Road"
+  },
+  "employment": {
+    "history": [
+      {
+        "position": "CEO/President",
+        "employer": "Pied Piper",
+        "summary": "Pied Piper is a multi-platform technology based on a proprietary universal compression algorithm that has consistently fielded high Weisman Scores™ that are not merely competitive, but approach the theoretical limit of lossless compression.",
+        "current": true,
+        "start": "2014-04-13",
+        "url": "http://piedpiper.com",
+        "keywords": [],
+        "highlights": [
+          "Build an algorithm for artist to detect if their music was violating copy right infringement laws",
+          "Successfully won Techcrunch Disrupt",
+          "Optimized an algorithm that holds the current world record for Weisman Scores"
+        ]
+      },
+      {
+        "position": "Software Engineer",
+        "employer": "Hooli",
+        "summary": "Worked on optimizing the backend algorithms for Hooli",
+        "start": "2013-01-01",
+        "end": "2014-04-06",
+        "url": "http://www.hooli.xyz/",
+        "keywords": []
+      }
+    ]
+  },
+  "education": {
+    "level": "",
+    "history": [
+      {
+        "institution": "Stanford",
+        "start": "2011-06-01",
+        "end": "2014-01-01",
+        "grade": "GPA 4.0",
+        "curriculum": [
+          "DB1101 - Basic SQL",
+          "CS2011 - Java Introduction"
+        ],
+        "summary": "",
+        "area": "Computer Science",
+        "studyType": "B.S"
+      }
+    ]
+  },
+  "service": {
+    "history": [
+      {
+        "type": "volunteer",
+        "position": "Teacher",
+        "organization": "CoderDojo",
+        "start": "2012-01-01",
+        "end": "2013-01-01",
+        "url": "http://coderdojo.com/",
+        "summary": "Global movement of free coding clubs for young people.",
+        "highlights": [
+          "Awarded 'Teacher of the Month'"
+        ]
+      }
+    ]
+  },
+  "skills": {
+    "sets": [
+      {
+        "name": "Web Development",
+        "level": "Master",
+        "skills": [
+          "HTML",
+          "CSS",
+          "Javascript"
+        ]
+      },
+      {
+        "name": "Compression",
+        "level": "Master",
+        "skills": [
+          "Mpeg",
+          "MP4",
+          "GIF"
+        ]
+      }
+    ]
+  },
+  "writing": [
+    {
+      "title": "Video compression for 3d media",
+      "publisher": "Hooli",
+      "url": "http://en.wikipedia.org/wiki/Silicon_Valley_(TV_series)",
+      "date": "2014-10-01",
+      "summary": "Innovative middle-out compression algorithm that changes the way we store data."
+    }
+  ],
+  "recognition": [
+    {
+      "title": "Digital Compression Pioneer Award",
+      "date": "2014-11-01",
+      "from": "Techcrunch",
+      "summary": "There is no spoon."
+    }
+  ],
+  "social": [
+    {
+      "label": "Twitter",
+      "network": "Twitter",
+      "url": "https://twitter.com/siliconHBO",
+      "user": "siliconHBO"
+    },
+    {
+      "label": "Facebook",
+      "network": "Facebook",
+      "url": "https://www.facebook.com/SiliconHBO",
+      "user": "SiliconHBO"
+    },
+    {
+      "label": "Instagram",
+      "network": "Instagram",
+      "url": "https://www.instagram.com/siliconhbo/",
+      "user": "siliconhbo"
+    }
+  ],
+  "interests": [
+    {
+      "name": "Wildlife",
+      "keywords": [
+        "Ferrets",
+        "Unicorns"
+      ]
+    }
+  ],
+  "testimonials": [
+    {
+      "name": "Erlich Bachman",
+      "flavor": "professional",
+      "quote": "It is my pleasure to recommend Richard. That is all.",
+      "private": false
+    }
+  ],
+  "languages": [
+    {
+      "language": "English",
+      "fluency": "Native speaker"
+    }
+  ]
+}
