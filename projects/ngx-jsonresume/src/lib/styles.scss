@@ -1,0 +1,32 @@
+@import '~@angular/material/theming';
+@import '~flexboxgrid/css/flexboxgrid.min.css';
+
+@include mat-core();
+
+// Define the default theme (same as the example above).
+$main-app-primary: mat-palette($mat-blue-grey, 800); // 200, 800, 900
+$main-app-accent: mat-palette($mat-blue-grey, 900);
+$main-app-warn: mat-palette($mat-red, 500);
+$main-app-icon: mat-palette($mat-blue-grey, 200);
+$main-app-theme: mat-light-theme($main-app-primary, $main-app-accent);
+
+// Include the default theme styles.
+@include angular-material-theme($main-app-theme);
+
+.wrap {
+  box-sizing: border-box;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.p-1 {
+  padding: 1em;
+}
+
+.f-c {
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  align-content: center;
+  align-items: center;
+}

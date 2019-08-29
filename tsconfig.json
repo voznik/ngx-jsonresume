@@ -10,6 +10,8 @@
     "module": "esnext",
     "moduleResolution": "node",
     "importHelpers": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
     "target": "es2015",
     "typeRoots": [
       "node_modules/@types"
@@ -19,11 +21,11 @@
       "dom"
     ],
     "paths": {
-      "ngx-jsonresume-streamline": [
-        "dist/ngx-jsonresume-streamline"
+      "ngx-jsonresume": [
+        "projects/ngx-jsonresume/src/public-api"
       ],
-      "ngx-jsonresume-streamline/*": [
-        "dist/ngx-jsonresume-streamline/*"
+      "ngx-jsonresume/*": [
+        "projects/ngx-jsonresume/src/*"
       ]
     }
   },

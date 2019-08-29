@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { NgxJsonresumeStreamlineModule } from 'ngx-jsonresume-streamline';
+import { NgxJsonresumeModule } from 'ngx-jsonresume';
 import { BigInputActionComponent } from './big-input/big-input-action.component';
 import { BigInputComponent } from './big-input/big-input.component';
 import { MaterialModule } from './material.module';
@@ -12,7 +12,7 @@ import { MaterialModule } from './material.module';
     FormsModule,
     ReactiveFormsModule,
     MaterialModule,
-    NgxJsonresumeStreamlineModule
+    NgxJsonresumeModule
   ],
   declarations: [BigInputComponent, BigInputActionComponent],
   exports: [
@@ -22,7 +22,7 @@ import { MaterialModule } from './material.module';
     MaterialModule,
     BigInputComponent,
     BigInputActionComponent,
-    NgxJsonresumeStreamlineModule
+    NgxJsonresumeModule
   ]
 })
 export class SharedModule {}

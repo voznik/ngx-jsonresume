@@ -29,6 +29,7 @@
               "projects/web/src/manifest.webmanifest"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/pink-bluegrey.css",
               "projects/web/src/styles.scss"
             ],
             "scripts": []
@@ -97,6 +98,7 @@
               "projects/web/src/manifest.webmanifest"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/pink-bluegrey.css",
               "projects/web/src/styles.scss"
             ],
             "scripts": []
@@ -126,36 +128,44 @@
               "devServerTarget": "web:serve:production"
             }
           }
+        },
+        "server": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "dist/web",
+            "main": "projects/web/src/main.server.ts",
+            "tsConfig": "projects/web/tsconfig.server.json"
+          }
         }
       }
     },
-    "ngx-jsonresume-streamline": {
+    "ngx-jsonresume": {
       "projectType": "library",
-      "root": "projects/ngx-jsonresume-streamline",
-      "sourceRoot": "projects/ngx-jsonresume-streamline/src",
+      "root": "projects/ngx-jsonresume",
+      "sourceRoot": "projects/ngx-jsonresume/src",
       "prefix": "lib",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
           "options": {
-            "tsConfig": "projects/ngx-jsonresume-streamline/tsconfig.lib.json",
-            "project": "projects/ngx-jsonresume-streamline/ng-package.json"
+            "tsConfig": "projects/ngx-jsonresume/tsconfig.lib.json",
+            "project": "projects/ngx-jsonresume/ng-package.json"
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/ngx-jsonresume-streamline/src/test.ts",
-            "tsConfig": "projects/ngx-jsonresume-streamline/tsconfig.spec.json",
-            "karmaConfig": "projects/ngx-jsonresume-streamline/karma.conf.js"
+            "main": "projects/ngx-jsonresume/src/test.ts",
+            "tsConfig": "projects/ngx-jsonresume/tsconfig.spec.json",
+            "karmaConfig": "projects/ngx-jsonresume/karma.conf.js"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "projects/ngx-jsonresume-streamline/tsconfig.lib.json",
-              "projects/ngx-jsonresume-streamline/tsconfig.spec.json"
+              "projects/ngx-jsonresume/tsconfig.lib.json",
+              "projects/ngx-jsonresume/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"
@@ -163,6 +173,7 @@
           }
         }
       }
-    }},
+    }
+  },
   "defaultProject": "web"
 }
