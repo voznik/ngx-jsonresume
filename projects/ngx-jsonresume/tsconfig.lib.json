@@ -2,9 +2,6 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "outDir": "../../out-tsc/lib",
-    "target": "es2015",
-    "resolveJsonModule": true,
-    "esModuleInterop": true,
     "declaration": true,
     "inlineSources": true,
     "types": [],

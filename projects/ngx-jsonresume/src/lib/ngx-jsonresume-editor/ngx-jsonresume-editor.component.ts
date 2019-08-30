@@ -14,7 +14,7 @@ import { tap } from 'rxjs/operators';
 import { NgxJsonresumeService } from '../ngx-jsonresume.service';
 
 @Component({
-  selector: 'lib-ngx-jsonresume-editor',
+  selector: 'ngx-jsonresume-editor',
   templateUrl: './ngx-jsonresume-editor.component.html',
   styleUrls: ['./ngx-jsonresume-editor.component.scss'],
   encapsulation: ViewEncapsulation.None

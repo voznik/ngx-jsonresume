@@ -132,9 +132,20 @@
         "server": {
           "builder": "@angular-devkit/build-angular:server",
           "options": {
-            "outputPath": "dist/web",
+            "outputPath": "dist/web-server",
             "main": "projects/web/src/main.server.ts",
-            "tsConfig": "projects/web/tsconfig.server.json"
+            "tsConfig": "projects/web/tsconfig.server.json",
+            "fileReplacements": [
+              {
+                "replace": "projects/web/src/environments/environment.ts",
+                "with": "projects/web/src/environments/environment.prod.ts"
+              }
+            ],
+            "optimization": true,
+            "sourceMap": false,
+            "namedChunks": false,
+            "progress": true,
+            "deleteOutputPath": false
           }
         }
       }
@@ -143,7 +154,6 @@
       "projectType": "library",
       "root": "projects/ngx-jsonresume",
       "sourceRoot": "projects/ngx-jsonresume/src",
-      "prefix": "lib",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
