@@ -26,6 +26,12 @@
       ],
       "ngx-jsonresume/*": [
         "projects/ngx-jsonresume/src/*"
+      ],
+      "shared-ui": [
+        "projects/shared-ui/src/public-api"
+      ],
+      "shared-ui/*": [
+        "projects/shared-ui/src/*"
       ]
     }
   },

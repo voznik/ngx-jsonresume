@@ -5,7 +5,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FormlyModule } from '@ngx-formly/core';
 import { FormlyMaterialModule } from '@ngx-formly/material';
 import { TYPES, TYPES_COMPONENTS, VALIDATION_MESSAGES } from './formly';
-import { MaterialModule } from './material.module';
+import { SharedUiModule } from 'shared-ui';
 import { NgxJsonresumeEditorComponent } from './ngx-jsonresume-editor';
 import { NgxJsonresumeService } from './ngx-jsonresume.service';
 
@@ -18,7 +18,7 @@ import { NgxJsonresumeService } from './ngx-jsonresume.service';
     CommonModule,
     HttpClientModule,
     ReactiveFormsModule,
-    MaterialModule,
+    SharedUiModule,
     FormlyModule.forRoot({
       validationMessages: VALIDATION_MESSAGES,
       types: TYPES

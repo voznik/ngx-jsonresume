@@ -14,7 +14,11 @@
     "build:prod": "ng build web --prod && npm run build:ssr && npm run build:functions && npm run copy:hosting",
     "copy:hosting": "node ./copy-dist.js",
     "build:functions": "npm run --prefix functions build",
-    "bnd": "npm run build:prod && firebase deploy"
+    "bnd": "npm run build:prod && firebase deploy",
+    "ci": "npm run format:test && ng lint && ng test --configuration=test --browsers ChromeTravisCi --code-coverage && npm run e2e && npm run build:prod -- --deploy-url /web/ --base-href /web",
+    "format:write": "prettier projects/**/*.{ts,json,md,scss} --write",
+    "format:test": "prettier projects/**/*.{ts,json,md,scss} --list-different",
+    "analyze": "npm run build:prod -- --stats-json && webpack-bundle-analyzer ./dist/web/stats-es2015.json"
   },
   "private": true,
   "dependencies": {
@@ -32,10 +36,11 @@
     "@angular/pwa": "^0.803.0",
     "@angular/router": "~8.2.3",
     "@angular/service-worker": "~8.2.3",
-    "@fortawesome/angular-fontawesome": "^0.3.0",
-    "@fortawesome/fontawesome-free": "^5.7.2",
-    "@fortawesome/fontawesome-svg-core": "^1.2.15",
-    "@fortawesome/free-solid-svg-icons": "^5.7.2",
+    "@fortawesome/angular-fontawesome": "^0.4.0",
+    "@fortawesome/fontawesome-free": "^5.8.2",
+    "@fortawesome/fontawesome-svg-core": "^1.2.18",
+    "@fortawesome/free-brands-svg-icons": "^5.8.2",
+    "@fortawesome/free-solid-svg-icons": "^5.8.2",
     "@nguniversal/express-engine": "^8.1.1",
     "@nguniversal/module-map-ngfactory-loader": "^8.1.1",
     "@ngx-formly/core": "^5.4.1",
@@ -63,10 +68,14 @@
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~4.1.0",
     "karma-chrome-launcher": "~2.2.0",
-    "karma-coverage-istanbul-reporter": "~2.0.1",
+    "karma-coverage-istanbul-reporter": "~2.0.4",
     "karma-jasmine": "~2.0.1",
-    "karma-jasmine-html-reporter": "^1.4.0",
+    "karma-jasmine-html-reporter": "^1.4.1",
+    "karma-spec-reporter": "^0.0.32",
     "ng-packagr": "^5.4.0",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^1.17.1",
+    "pretty-quick": "^1.11.1",
     "protractor": "~5.4.0",
     "ts-loader": "^6.0.4",
     "ts-node": "~7.0.0",
@@ -74,6 +83,7 @@
     "tslib": "^1.10.0",
     "tslint": "~5.15.0",
     "typescript": "~3.5.3",
-    "webpack-cli": "^3.3.7"
+    "webpack-cli": "^3.3.7",
+    "webpack-bundle-analyzer": "^3.3.2"
   }
 }

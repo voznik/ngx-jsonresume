@@ -1,4 +1,4 @@
-// tslint:disable:no-string-literal
+// tslint:disable:no-string-literal component-selector
 import {
   Component,
   EventEmitter,
@@ -15,14 +15,35 @@ import { NgxJsonresumeService } from '../ngx-jsonresume.service';
 
 @Component({
   selector: 'ngx-jsonresume-editor',
-  templateUrl: './ngx-jsonresume-editor.component.html',
-  styleUrls: ['./ngx-jsonresume-editor.component.scss'],
+  template: `
+  <div class="wrap container-fluid">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" *ngIf="fields">
+      <formly-form
+        [model]="model"
+        [fields]="fields"
+        [options]="options"
+        [form]="form"
+      ></formly-form>
+      <div class="p-1">
+        <button
+          type="submit"
+          mat-raised-button
+          color="primary"
+          [disabled]="!form.valid"
+        >
+          Submit
+        </button>
+      </div>
+    </form>
+  </div>
+  `,
+  styles: [``],
   encapsulation: ViewEncapsulation.None
 })
 export class NgxJsonresumeEditorComponent implements OnInit {
   @Input() appearance = 'outline';
   @Input() model: any = {};
-  @Output() submit = new EventEmitter<any>();
+  @Output() submitForm = new EventEmitter<any>();
   form: FormGroup;
   options: FormlyFormOptions;
   fields: FormlyFieldConfig[];
@@ -54,7 +75,7 @@ export class NgxJsonresumeEditorComponent implements OnInit {
 
   onSubmit() {
     console.log(JSON.stringify(this.model));
-    this.submit.emit(this.model);
+    this.submitForm.emit(this.model);
   }
 
   ngOnInit() {
