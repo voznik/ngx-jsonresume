@@ -13,12 +13,12 @@
     "serve:ssr": "node dist/web-webpack/server.js",
     "build:prod": "ng build web --prod && npm run build:ssr && npm run build:functions && npm run copy:hosting",
     "copy:hosting": "node ./copy-dist.js",
-    "build:functions": "npm run --prefix functions build",
+    "build:functions": "cd functions; npm install; cd -; npm run --prefix functions build",
     "bnd": "npm run build:prod && firebase deploy",
-    "ci": "npm run format:test && ng lint && ng test --configuration=test --browsers ChromeTravisCi --code-coverage && npm run e2e && npm run build:prod -- --deploy-url /web/ --base-href /web",
+    "ci": "npm run format:test && ng lint && ng test --configuration=test --browsers ChromeTravisCi --code-coverage && npm run e2e && npm run build:prod",
     "format:write": "prettier projects/**/*.{ts,json,md,scss} --write",
     "format:test": "prettier projects/**/*.{ts,json,md,scss} --list-different",
-    "analyze": "npm run build:prod -- --stats-json && webpack-bundle-analyzer ./dist/web/stats-es2015.json"
+    "analyze": "npm run build --prod --stats-json && webpack-bundle-analyzer ./dist/web/stats-es2015.json"
   },
   "private": true,
   "dependencies": {
@@ -50,6 +50,7 @@
     "zone.js": "~0.9.1"
   },
   "devDependencies": {
+    "@angular-builders/custom-webpack": "^8.2.0",
     "@angular-devkit/build-angular": "~0.803.0",
     "@angular-devkit/build-ng-packagr": "~0.803.0",
     "@angular/cli": "~8.3.0",
@@ -60,6 +61,7 @@
     "@types/json-schema": "^7.0.3",
     "@types/node": "~8.9.4",
     "codelyzer": "^5.0.0",
+    "dotenv-webpack": "^1.7.0",
     "express": "^4.17.1",
     "firebase-admin": "^8.4.0",
     "firebase-functions": "^3.2.0",

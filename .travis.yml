@@ -13,7 +13,7 @@ before_install:
   - export DISPLAY=:99.0
   - sh -e /etc/init.d/xvfb start
 install:
-  - npm install codecov firebase-tools -g
+  - npm install firebase-tools -g
   - npm ci --ignore-scripts
 script:
   # run build script specified in package.json
@@ -22,5 +22,4 @@ script:
   # call script for deploying of produced artifacts
   # - bash ./.travis-deploy.sh
 after_success:
-  - codecov
   - firebase deploy --project ngx-jsonresume --token $FIREBASE_TOKEN
