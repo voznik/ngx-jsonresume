@@ -1,16 +1,18 @@
 // https://github.com/vikerman/v8-lazy/blob/master/webpack.server.config.js
 // Work around for https://github.com/angular/angular-cli/issues/7200
 
-const SRC = 'projects/web/src';
-
 const path = require('path');
 const webpack = require('webpack');
+
+const SRC_PATH = path.join(process.cwd(), 'projects/web/src');
+const OUT_PATH = path.join(__dirname, '../../dist/web-server');
+const ENTRY_PATH = path.join(process.cwd(), 'projects/server/src/server.ts');
 
 module.exports = {
   mode: 'none',
   entry: {
     // This is our Express server for Dynamic universal
-    server: './server.ts'
+    server: ENTRY_PATH
   },
   target: 'node',
   resolve: { extensions: ['.ts', '.js'] },
@@ -19,9 +21,9 @@ module.exports = {
   },
   output: {
     // Puts the output at the root of the dist folder
-    path: path.join(__dirname, 'dist'),
-    library:'app',
-    libraryTarget:'umd',
+    path: OUT_PATH,
+    library: 'app',
+    libraryTarget: 'umd',
     filename: '[name].js'
   },
   module: {
@@ -40,13 +42,13 @@ module.exports = {
     new webpack.ContextReplacementPlugin(
       // fixes WARNING Critical dependency: the request of a dependency is an expression
       /(.+)?angular(\\|\/)core(.+)?/,
-      path.join(__dirname, SRC), // location of your src
+      path.join(__dirname, SRC_PATH), // location of your src
       {} // a map of your routes
     ),
     new webpack.ContextReplacementPlugin(
       // fixes WARNING Critical dependency: the request of a dependency is an expression
       /(.+)?express(\\|\/)(.+)?/,
-      path.join(__dirname, SRC),
+      path.join(__dirname, SRC_PATH),
       {}
     )
   ]

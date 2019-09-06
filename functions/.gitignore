@@ -5,7 +5,17 @@
 # Typescript v1 declaration files
 typings/
 
+# misc
+/.sass-cache
+/connect.lock
+/coverage
+/libpeerconnection.log
+*debug.log
+yarn-error.log
+testem.log
+
 node_modules/
 
 dist/
 lib/
+public/
