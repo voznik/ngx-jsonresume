@@ -1,4 +1,4 @@
-# ngx-jsonresume [![forthebadge](https://forthebadge.com/images/badges/you-didnt-ask-for-this.svg)](https://forthebadge.com)
+# ngx-jsonresume [![forthebadge](https://forthebadge.com/images/badges/you-didnt-ask-for-this.svg)](https://forthebadge.com) ![AWIP](https://unpkg.com/vvwip/AWIP.svg)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.0.
 
