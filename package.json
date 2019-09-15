@@ -14,7 +14,7 @@
     "serve:ssr": "node dist/web-webpack/server.js",
     "build:prod": "ng build web --prod && npm run build:ssr && npm run build:functions && npm run copy:hosting",
     "copy:hosting": "node ./tools/copy-dist.js",
-    "build:functions": "cd functions; npm install && npm run build",
+    "build:functions": "cd functions; npm install; cd -; npm run --prefix functions build",
     "deploy": "npm run build:prod && firebase deploy --force",
     "ci": "npm run format:test && ng lint && npm run test:travis && npm run build:prod",
     "format:write": "prettier projects/**/*.{ts,md,scss} --write",
