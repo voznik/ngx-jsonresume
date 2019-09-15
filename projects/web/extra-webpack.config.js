@@ -6,13 +6,13 @@ const pkg = require('../../package.json');
 module.exports = (config, options) => {
   config.plugins.push(
     new Dotenv({
-      path: './.env', // Path to .env file (this is the default)
-      safe: true // load .env.example (defaults to "false" which does not use dotenv-safe)
+      systemvars: true, // load all the predefined 'process.env' variables which will trump anything local per dotenv specs.
+      safe: true, // load .env.example (defaults to "false" which does not use dotenv-safe)
     })
   );
   config.plugins.push(
     new webpack.DefinePlugin({
-      APP_VERSION: JSON.stringify(pkg.version)
+      APP_VERSION: JSON.stringify(pkg.version),
     })
   );
 

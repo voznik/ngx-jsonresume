@@ -17,7 +17,7 @@ export class AppComponent implements OnInit {
   languages = ['en'];
   navigation = [
     { link: 'about', label: 'menu.about' },
-    { link: 'resume', label: 'menu.examples' },
+    { link: 'resume', label: 'menu.resume' },
   ];
   navigationSideMenu = [
     ...this.navigation,
@@ -36,12 +36,8 @@ export class AppComponent implements OnInit {
     this.app.init();
   }
 
-  private static isIEorEdgeOrSafari() {
-    return ['ie', 'edge', 'safari'].includes(window.navigator.appName);
-  }
-
   ngOnInit(): void {
-    if (AppComponent.isIEorEdgeOrSafari()) {
+    if (this.app.isIEorEdgeOrSafari()) {
       this.animationsService.updateRouteAnimationType(false, false);
     }
 

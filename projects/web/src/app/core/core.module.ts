@@ -25,6 +25,8 @@ import {
   HttpErrorInterceptor,
   LocalStorageService,
   TitleService,
+  AuthGuardService,
+  UserService,
 } from './services';
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -76,6 +78,9 @@ export class CoreModule {
         AppService,
         LocalStorageService,
         TitleService,
+        AuthGuardService,
+        AuthGuardService,
+        UserService,
       ],
     };
   }

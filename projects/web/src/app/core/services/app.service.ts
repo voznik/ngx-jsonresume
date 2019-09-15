@@ -1,4 +1,5 @@
 import { OverlayContainer } from '@angular/cdk/overlay';
+import { Platform } from '@angular/cdk/platform';
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { ActivationEnd, Router } from '@angular/router';
@@ -48,6 +49,7 @@ export const initialState: State = {
 export class AppService extends StoreService<State> {
   constructor(
     public afAuth: AngularFireAuth,
+    private platform: Platform,
     private overlayContainer: OverlayContainer,
     private router: Router,
     private storageService: LocalStorageService,
@@ -55,6 +57,10 @@ export class AppService extends StoreService<State> {
     private translateService: TranslateService
   ) {
     super(initialState);
+  }
+
+  isIEorEdgeOrSafari() {
+    return this.platform.SAFARI || this.platform.EDGE;
   }
 
   init() {
