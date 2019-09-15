@@ -6,6 +6,7 @@
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
+    "test:travis": "ng test web --watch=false --no-progress --browsers=ChromeHeadlessNoSandbox",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "build:ssr": "ng run web:server && npm run webpack:ssr",
@@ -15,7 +16,7 @@
     "copy:hosting": "node ./tools/copy-dist.js",
     "build:functions": "cd functions; npm install && npm run build",
     "deploy": "npm run build:prod && firebase deploy --force",
-    "ci": "npm run format:test && ng lint && ng test --browsers ChromeTravisCi --code-coverage && npm run build:prod",
+    "ci": "npm run format:test && ng lint && npm run test:travis && npm run build:prod",
     "format:write": "prettier projects/**/*.{ts,md,scss} --write",
     "format:test": "prettier projects/**/*.{ts,md,scss} --list-different && ng lint",
     "analyze": "npm run build --prod --stats-json && webpack-bundle-analyzer ./dist/web/stats-es2015.json"
