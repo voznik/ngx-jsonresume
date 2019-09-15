@@ -133,6 +133,16 @@
               "projects/web/src/styles.scss"
             ],
             "scripts": []
+          },
+          "configurations": {
+            "test": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/web/src/environments/environment.ts",
+                  "with": "projects/web/src/environments/environment.test.ts"
+                }
+              ]
+            }
           }
         },
         "lint": {

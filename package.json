@@ -6,7 +6,7 @@
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
-    "test:travis": "ng test web --watch=false --no-progress --browsers=ChromeHeadlessNoSandbox",
+    "test:travis": "ng run web:travis --configuration=test --watch=false --no-progress --browsers=ChromeHeadlessNoSandbox",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "build:ssr": "ng run web:server && npm run webpack:ssr",
