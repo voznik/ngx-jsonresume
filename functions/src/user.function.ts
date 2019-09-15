@@ -72,4 +72,5 @@ export const addUserDataDemo = functions.https.onRequest((req, res) => {
       .add(body.content)
       .then(() => res.send('data added'));
   }
+  return;
 });
