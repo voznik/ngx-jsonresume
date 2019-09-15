@@ -2,10 +2,8 @@ import * as _cors from 'cors';
 import * as admin from 'firebase-admin';
 import * as functions from 'firebase-functions';
 
-import { analysisFunction } from './analysis.function';
-import { deleteUserDataFunction } from './delete-user-data.function';
 import { functionsConfig } from './functions-config';
-import { validateResume, buildResume } from './resume-validate.function';
+import { validateResume, buildResume } from './resume.function';
 
 // CORS configuration.
 const options: _cors.CorsOptions = {
@@ -23,27 +21,21 @@ db.settings({ timestampsInSnapshots: true });
 /**
  * Trigger a function with an HTTP request.
  */
-export const httpFunction = functions.https.onRequest(
-  (request: functions.Request, response: functions.Response) => {
-    cors(options)(request, response, () => analysisFunction(request, response));
+export const validateResumeFunction = functions.https.onRequest(
+  (req: functions.Request, res: functions.Response) => {
+    cors(options)(req, res, () => {
+      return validateResume().then(result => res.send(result));
+    });
   }
 );
 
-/**
- * Trigger a function on user deletion.
- */
-export const authFunction = functions.auth
-  .user()
-  .onDelete((user: admin.auth.UserRecord) => {
-    return deleteUserDataFunction(user);
-  });
-
 export * from './angular-universal.function';
+export * from './user.function';
 
 // [START allAdd]
 // [START addFunctionTrigger]
 // Adds two numbers to each other.
-export const validateResumeFunction = functions.https.onCall(data => {
+export const buildResumeFunction = functions.https.onCall(data => {
   // [END addFunctionTrigger]
   // [START readAddData]
   // Numbers passed from the client.

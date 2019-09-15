@@ -9,8 +9,16 @@ const routes: Routes = [
     path: '',
     component: ResumeComponent,
     children: [
-      { path: 'viewer', component: ViewerComponent },
-      { path: 'editor', component: EditorComponent },
+      {
+        path: 'viewer',
+        component: ViewerComponent,
+        data: { title: 'Resume Viewer' }
+      },
+      {
+        path: 'editor',
+        component: EditorComponent,
+        data: { title: 'Resume Editor' }
+      },
       { path: '', redirectTo: 'editor', pathMatch: 'full' }
     ]
   }

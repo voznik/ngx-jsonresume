@@ -1,5 +1,10 @@
 export const environment = {
   production: true,
+  envName: 'PROD',
+  test: false,
+  i18nPrefix: '/ngx-jsonresume',
+  appName: 'ngx-jsonresume',
+  url: 'https://ngx-jsonresume.firebaseapp.com',
   firebaseConfig: {
     apiKey: process.env.FIREBASE_APIKEY,
     authDomain: process.env.FIREBASE_AUTHDOMAIN,
@@ -10,4 +15,3 @@ export const environment = {
     appId: process.env.FIREBASE_APPID
   }
 };
-

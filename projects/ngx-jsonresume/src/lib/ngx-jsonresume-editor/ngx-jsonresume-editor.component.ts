@@ -16,7 +16,7 @@ import { NgxJsonresumeService } from '../ngx-jsonresume.service';
 @Component({
   selector: 'ngx-jsonresume-editor',
   template: `
-  <div class="wrap container-fluid">
+  <div class="container-fluid">
     <form [formGroup]="form" (ngSubmit)="onSubmit()" *ngIf="fields">
       <formly-form
         [model]="model"

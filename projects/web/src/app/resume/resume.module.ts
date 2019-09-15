@@ -5,6 +5,7 @@ import { EditorComponent } from './editor/editor.component';
 import { SharedModule } from '../shared/shared.module';
 import { ResumeComponent } from './resume.component';
 import { ViewerComponent } from './viewer/viewer.component';
+import { ResumeDataService } from './resume-data.service';
 
 
 @NgModule({
@@ -12,6 +13,7 @@ import { ViewerComponent } from './viewer/viewer.component';
   imports: [
     SharedModule,
     ResumeRoutingModule,
-  ]
+  ],
+  providers: [ResumeDataService]
 })
 export class ResumeModule { }

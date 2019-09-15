@@ -4,6 +4,11 @@
 
 export const environment = {
   production: false,
+  envName: 'DEV',
+  test: false,
+  i18nPrefix: '',
+  appName: 'ngx-jsonresume',
+  url: 'https://ngx-jsonresume.firebaseapp.com',
   firebaseConfig: {
     apiKey: process.env.FIREBASE_APIKEY,
     authDomain: process.env.FIREBASE_AUTHDOMAIN,

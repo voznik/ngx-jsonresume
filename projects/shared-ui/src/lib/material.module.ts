@@ -22,60 +22,6 @@ import { MatSliderModule } from '@angular/material/';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material';
 
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { library } from '@fortawesome/fontawesome-svg-core';
-import {
-  faBars,
-  faUserCircle,
-  faPowerOff,
-  faCog,
-  faPlayCircle,
-  faRocket,
-  faPlus,
-  faEdit,
-  faTrash,
-  faTimes,
-  faCaretUp,
-  faCaretDown,
-  faExclamationTriangle,
-  faFilter,
-  faTasks,
-  faCheck,
-  faSquare,
-  faLanguage,
-  faPaintBrush,
-  faLightbulb,
-  faWindowMaximize,
-  faStream,
-  faBook
-} from '@fortawesome/free-solid-svg-icons';
-
-library.add(
-  faBars,
-  faUserCircle,
-  faPowerOff,
-  faCog,
-  faRocket,
-  faPlayCircle,
-  faPlus,
-  faEdit,
-  faTrash,
-  faTimes,
-  faCaretUp,
-  faCaretDown,
-  faExclamationTriangle,
-  faFilter,
-  faTasks,
-  faCheck,
-  faSquare,
-  faLanguage,
-  faPaintBrush,
-  faLightbulb,
-  faWindowMaximize,
-  faStream,
-  faBook
-);
-
 @NgModule({
   imports: [
     CommonModule,
@@ -96,8 +42,6 @@ library.add(
     MatSnackBarModule,
     MatSlideToggleModule,
     MatDividerModule,
-
-    FontAwesomeModule
   ],
   declarations: [],
   exports: [
@@ -122,7 +66,6 @@ library.add(
     MatSliderModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    FontAwesomeModule
   ]
 })
 export class MaterialModule {}

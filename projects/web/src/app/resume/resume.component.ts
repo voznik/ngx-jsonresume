@@ -1,72 +1,49 @@
-import { Component } from '@angular/core';
-import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { Observable } from 'rxjs';
-import { map, shareReplay } from 'rxjs/operators';
+import { Component, ViewEncapsulation } from '@angular/core';
+import { routeAnimations } from 'shared-ui';
 
 @Component({
   selector: 'app-resume',
   template: `
-    <mat-sidenav-container class="sidenav-container">
-      <mat-sidenav
-        #drawer
-        class="sidenav"
-        fixedInViewport
-        [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
-        [mode]="(isHandset$ | async) ? 'over' : 'side'"
-        [opened]="(isHandset$ | async) === false"
+    <nav mat-tab-nav-bar class="d-none d-sm-flex">
+      <a
+        mat-tab-link
+        *ngFor="let e of routes"
+        [routerLink]="e.link"
+        routerLinkActive
+        #rla="routerLinkActive"
+        [active]="rla.isActive"
       >
-        <mat-toolbar>Menu</mat-toolbar>
-        <mat-nav-list>
-          <a mat-list-item [routerLink]="'viewer'">Viewer</a>
-          <a mat-list-item [routerLink]="'editor'">Editor</a>
-        </mat-nav-list>
-      </mat-sidenav>
-      <mat-sidenav-content>
-        <mat-toolbar color="primary">
-          <button
-            type="button"
-            aria-label="Toggle sidenav"
-            mat-icon-button
-            (click)="drawer.toggle()"
-            *ngIf="isHandset$ | async"
-          >
-            <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
-          </button>
-          <span>web</span>
-        </mat-toolbar>
-        <router-outlet></router-outlet>
-      </mat-sidenav-content>
-    </mat-sidenav-container>
+        {{ e.label | translate }}
+      </a>
+    </nav>
+
+    <nav class="nav-responsive d-sm-none d-flex justify-content-center">
+      <mat-select
+        [placeholder]="'routes.title' | translate"
+        [value]="'todos'"
+      >
+        <mat-option *ngFor="let e of routes" [value]="e" [routerLink]="e.link">
+          <!--[disabled]="e.auth && !(isAuthenticated$ | async)"-->
+          {{ e.label | translate }}
+        </mat-option>
+      </mat-select>
+    </nav>
+
+    <div class="wrap"
+      [@routeAnimations]="o.isActivated && o.activatedRoute.routeConfig.path"
+    >
+      <router-outlet #o="outlet"></router-outlet>
+    </div>
   `,
-  styles: [
-    `
-      .sidenav-container {
-        height: 100%;
-      }
-
-      .sidenav {
-        width: 200px;
-      }
-
-      .sidenav .mat-toolbar {
-        background: inherit;
-      }
-
-      .mat-toolbar.mat-primary {
-        position: sticky;
-        top: 0;
-        z-index: 1;
-      }
-    `
-  ]
+  styles: [``],
+  animations: [routeAnimations],
+  encapsulation: ViewEncapsulation.None
 })
 export class ResumeComponent {
-  isHandset$: Observable<boolean> = this.breakpointObserver
-    .observe(Breakpoints.Handset)
-    .pipe(
-      map(result => result.matches),
-      shareReplay()
-    );
+  routes = [
+    { label: 'Editor', link: 'editor' },
+    { label: 'Viewer', link: 'viewer' }
+  ];
 
-  constructor(private breakpointObserver: BreakpointObserver) {}
+  constructor() {}
 }

@@ -32,6 +32,12 @@
       ],
       "shared-ui/*": [
         "projects/shared-ui/src/*"
+      ],
+      "@app/*": [
+        "projects/web/src/app/*"
+      ],
+      "@app/env/*": [
+        "projects/web/src/environments/*"
       ]
     }
   },

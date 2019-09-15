@@ -1,1 +1,16 @@
-<router-outlet></router-outlet>
+<app-shell
+  [logo]="logo"
+  [navigation]="navigation"
+  [navigationSideMenu]="navigationSideMenu"
+  [theme]="theme$ | async"
+  [stickyHeader]="stickyHeader$ | async"
+  [language]="language$ | async"
+  [isAuthenticated]="(isAuthenticated$ | async)"
+  (login)="onLogin()"
+  (logout)="onLogout()"
+  (languageChange)="onLanguageSelect($event)"
+  >
+  <div class="content" [@routeAnimations]="o.isActivated && o.activatedRoute.routeConfig.data && o.activatedRoute.routeConfig.data['title']">
+    <router-outlet #o="outlet"></router-outlet>
+  </div>
+</app-shell>
