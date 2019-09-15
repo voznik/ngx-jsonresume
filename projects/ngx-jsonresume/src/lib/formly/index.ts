@@ -2,4 +2,3 @@
 export * from './messages';
 export * from './types';
 // end:ng42.barrel
-

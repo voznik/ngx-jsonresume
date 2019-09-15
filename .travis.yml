@@ -14,12 +14,10 @@ before_install:
   - sh -e /etc/init.d/xvfb start
 install:
   - npm install firebase-tools -g
-  - npm ci --ignore-scripts
 script:
   # run build script specified in package.json
-  # - npm run ci
-  npm run build:prod
+  - npm run ci --ignore-scripts
   # call script for deploying of produced artifacts
   # - bash ./.travis-deploy.sh
 after_success:
-  - firebase deploy --project ngx-jsonresume --token $FIREBASE_TOKEN
+  - firebase deploy --force --project ngx-jsonresume --token $FIREBASE_TOKEN

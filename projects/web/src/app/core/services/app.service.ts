@@ -1,12 +1,12 @@
-import { Injectable } from '@angular/core';
-import { StoreService } from './store.service';
-import { filter, tap, distinctUntilChanged } from 'rxjs/operators';
-import { ActivationEnd, Router } from '@angular/router';
-import { TitleService } from './title.service';
-import { TranslateService } from '@ngx-translate/core';
-import { LocalStorageService } from './local-storage.service';
 import { OverlayContainer } from '@angular/cdk/overlay';
+import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { ActivationEnd, Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
+import { filter, tap, distinctUntilChanged } from 'rxjs/operators';
+import { LocalStorageService } from './local-storage.service';
+import { StoreService } from './store.service';
+import { TitleService } from './title.service';
 
 export const NIGHT_MODE_THEME = 'BLACK-THEME';
 
@@ -40,8 +40,8 @@ export const initialState: State = {
     pageAnimations: true,
     pageAnimationsDisabled: false,
     elementsAnimations: true,
-    hour: 0
-  }
+    hour: 0,
+  },
 };
 
 @Injectable()

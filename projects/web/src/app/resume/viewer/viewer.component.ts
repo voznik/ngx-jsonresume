@@ -1,19 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { TitleService } from '@app/core/services';
-import { ResumeDataService } from '../resume-data.service';
-import { tap } from 'rxjs/operators';
 import { Observable } from 'rxjs';
+import { tap } from 'rxjs/operators';
+import { ResumeDataService } from '../resume-data.service';
 
 @Component({
   selector: 'app-viewer',
   templateUrl: './viewer.component.html',
-  styleUrls: ['./viewer.component.scss']
+  styleUrls: ['./viewer.component.scss'],
 })
 export class ViewerComponent implements OnInit {
   resumeModel$: Observable<any>;
 
   constructor(
-    private seo: TitleService,
+    private titleService: TitleService,
     private dataService: ResumeDataService
   ) {}
 
@@ -22,7 +22,7 @@ export class ViewerComponent implements OnInit {
       tap(data => {
         if ('basics' in data) {
           const { name, picture, summary } = data.basics;
-          this.seo.generateTags(name, summary, picture);
+          this.titleService.generateTags(name, summary, picture);
         }
       })
     );

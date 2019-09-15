@@ -1,5 +1,5 @@
-import { Title, Meta } from '@angular/platform-browser';
 import { Injectable } from '@angular/core';
+import { Title, Meta } from '@angular/platform-browser';
 import { ActivatedRouteSnapshot } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { filter } from 'rxjs/operators';

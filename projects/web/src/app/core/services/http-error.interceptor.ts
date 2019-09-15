@@ -1,11 +1,11 @@
-import { Injectable, Injector, ErrorHandler } from '@angular/core';
 import {
   HttpEvent,
   HttpInterceptor,
   HttpHandler,
   HttpRequest,
-  HttpErrorResponse
+  HttpErrorResponse,
 } from '@angular/common/http';
+import { Injectable, Injector, ErrorHandler } from '@angular/core';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 
@@ -25,7 +25,7 @@ export class HttpErrorInterceptor implements HttpInterceptor {
             const appErrorHandler = this.injector.get(ErrorHandler);
             appErrorHandler.handleError(err);
           }
-        }
+        },
       })
     );
   }

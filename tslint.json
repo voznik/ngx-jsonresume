@@ -1,5 +1,9 @@
 {
-  "extends": "tslint:recommended",
+  "extends": [
+    "tslint:recommended",
+    "tslint-angular",
+    "tslint-config-prettier"
+  ],
   "rulesDirectory": [
     "codelyzer"
   ],
@@ -12,6 +16,14 @@
     "import-blacklist": [
       true,
       "rxjs/Rx"
+    ],
+    "import-spacing": true,
+    "ordered-imports": [
+      true,
+      {
+        "import-sources-order": "case-insensitive",
+        "named-imports-order": "any"
+      }
     ],
     "interface-name": false,
     "max-classes-per-file": false,
@@ -55,12 +67,23 @@
       "as-needed"
     ],
     "object-literal-sort-keys": false,
-    "ordered-imports": false,
     "quotemark": [
       true,
       "single"
     ],
-    "trailing-comma": false,
+    "trailing-comma": [
+      true,
+      {
+        "multiline": {
+          "objects": "ignore",
+          "imports": "ignore",
+          "arrays": "always",
+          "functions": "never",
+          "typeLiterals": "ignore"
+        },
+        "esSpecCompliant": true
+      }
+    ],
     "component-class-suffix": true,
     "contextual-lifecycle": true,
     "directive-class-suffix": true,

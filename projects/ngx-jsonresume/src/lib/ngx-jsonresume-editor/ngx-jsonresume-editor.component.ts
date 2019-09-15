@@ -1,11 +1,11 @@
-// tslint:disable:no-string-literal component-selector
+// tslint:disable:no-string-literal component-selector use-component-view-encapsulation
 import {
   Component,
   EventEmitter,
   Input,
   OnInit,
   Output,
-  ViewEncapsulation
+  ViewEncapsulation,
 } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { FormlyFieldConfig, FormlyFormOptions } from '@ngx-formly/core';
@@ -16,29 +16,29 @@ import { NgxJsonresumeService } from '../ngx-jsonresume.service';
 @Component({
   selector: 'ngx-jsonresume-editor',
   template: `
-  <div class="container-fluid">
-    <form [formGroup]="form" (ngSubmit)="onSubmit()" *ngIf="fields">
-      <formly-form
-        [model]="model"
-        [fields]="fields"
-        [options]="options"
-        [form]="form"
-      ></formly-form>
-      <div class="p-1">
-        <button
-          type="submit"
-          mat-raised-button
-          color="primary"
-          [disabled]="!form.valid"
-        >
-          Submit
-        </button>
-      </div>
-    </form>
-  </div>
+    <div class="container-fluid">
+      <form [formGroup]="form" (ngSubmit)="onSubmit()" *ngIf="fields">
+        <formly-form
+          [model]="model"
+          [fields]="fields"
+          [options]="options"
+          [form]="form"
+        ></formly-form>
+        <div class="p-1">
+          <button
+            type="submit"
+            mat-raised-button
+            color="primary"
+            [disabled]="!form.valid"
+          >
+            Submit
+          </button>
+        </div>
+      </form>
+    </div>
   `,
   styles: [``],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
 })
 export class NgxJsonresumeEditorComponent implements OnInit {
   @Input() appearance = 'outline';
@@ -65,8 +65,8 @@ export class NgxJsonresumeEditorComponent implements OnInit {
               map: (field, source) => {
                 field.templateOptions['appearance'] = this.appearance;
                 return field;
-              }
-            })
+              },
+            }),
           ];
         })
       )

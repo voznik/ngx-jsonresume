@@ -7,7 +7,9 @@ import { FieldType } from '@ngx-formly/core';
   template: `
     <mat-divider></mat-divider>
     <h4 class="label" *ngIf="to.label">{{ to.label }}</h4>
-    <mat-hint class="description" *ngIf="to.description">{{ to.description }}</mat-hint>
+    <mat-hint class="description" *ngIf="to.description">{{
+      to.description
+    }}</mat-hint>
     <div
       class="alert alert-danger"
       role="alert"
@@ -17,10 +19,10 @@ import { FieldType } from '@ngx-formly/core';
     </div>
 
     <formly-field *ngFor="let f of field.fieldGroup" [field]="f"></formly-field>
-  `
+  `,
 })
 export class ObjectTypeComponent extends FieldType {
   defaultOptions = {
-    defaultValue: {}
+    defaultValue: {},
   };
 }

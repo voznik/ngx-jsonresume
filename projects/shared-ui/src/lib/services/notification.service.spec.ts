@@ -1,15 +1,15 @@
 import { TestBed } from '@angular/core/testing';
 
-import { NotificationService } from './notification.service';
-import { MatSnackBar } from '@angular/material';
 import { Overlay } from '@angular/cdk/overlay';
+import { MatSnackBar } from '@angular/material';
+import { NotificationService } from './notification.service';
 
 describe('NotificationsService', () => {
   let service: NotificationService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [NotificationService, MatSnackBar, Overlay]
+      providers: [NotificationService, MatSnackBar, Overlay],
     });
     service = TestBed.get(NotificationService);
   });

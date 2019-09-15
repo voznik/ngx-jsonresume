@@ -8,9 +8,8 @@ describe('NgxJsonresumeEditorComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NgxJsonresumeEditorComponent ]
-    })
-    .compileComponents();
+      declarations: [NgxJsonresumeEditorComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

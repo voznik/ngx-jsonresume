@@ -28,11 +28,17 @@ export function multipleOfValidationMessage(err, field: FormlyFieldConfig) {
   return `should be multiple of ${field.templateOptions.step}`;
 }
 
-export function exclusiveMinimumValidationMessage(err, field: FormlyFieldConfig) {
+export function exclusiveMinimumValidationMessage(
+  err,
+  field: FormlyFieldConfig
+) {
   return `should be > ${field.templateOptions.step}`;
 }
 
-export function exclusiveMaximumValidationMessage(err, field: FormlyFieldConfig) {
+export function exclusiveMaximumValidationMessage(
+  err,
+  field: FormlyFieldConfig
+) {
   return `should be < ${field.templateOptions.step}`;
 }
 
@@ -46,12 +52,12 @@ export const VALIDATION_MESSAGES = [
   { name: 'multipleOf', message: multipleOfValidationMessage },
   {
     name: 'exclusiveMinimum',
-    message: exclusiveMinimumValidationMessage
+    message: exclusiveMinimumValidationMessage,
   },
   {
     name: 'exclusiveMaximum',
-    message: exclusiveMaximumValidationMessage
+    message: exclusiveMaximumValidationMessage,
   },
   { name: 'minItems', message: minItemsValidationMessage },
-  { name: 'maxItems', message: maxItemsValidationMessage }
+  { name: 'maxItems', message: maxItemsValidationMessage },
 ];

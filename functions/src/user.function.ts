@@ -1,8 +1,10 @@
+// tslint:disable:prefer-const no-unused-variable
 import * as admin from 'firebase-admin';
 import * as functions from 'firebase-functions';
 import { join } from 'path';
 import { readFileSync } from 'fs';
 import { tmpdir } from 'os';
+import demoData from './resume.json';
 
 const filePath = 'resume.json';
 const collection = (name: string) => admin.firestore().collection(name);
@@ -23,17 +25,14 @@ export const addUserRef = functions.auth.user().onCreate((user, context) => {
     .set({
       ...user,
       createdAt: admin.firestore.FieldValue.serverTimestamp(),
-      updatedAt: admin.firestore.FieldValue.serverTimestamp()
+      updatedAt: admin.firestore.FieldValue.serverTimestamp(),
     })
     .then(() => {
       console.log('Successfully created new user:', user.uid);
-      return readDefaultResumeFile();
-    })
-    .then((data: any) => {
-      console.log('Successfully read file:', user.uid);
+      // const demoData = require('./resume.json');
       return collection('resumes')
         .doc(user.uid)
-        .set(data);
+        .set(demoData);
     })
     .then(() =>
       console.log('Successfully created new resume for user:', user.uid)
@@ -51,7 +50,7 @@ export const deleteUserRef = functions.auth.user().onDelete((user, context) => {
       .delete(),
     collection('resumes')
       .doc(user.uid)
-      .delete()
+      .delete(),
   ])
     .then(() => {
       console.log('Document successfully deleted!');

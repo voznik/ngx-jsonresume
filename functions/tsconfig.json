@@ -1,8 +1,9 @@
 {
   "compilerOptions": {
     "module": "commonjs",
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
     "noImplicitReturns": true,
-    "noUnusedLocals": true,
     "outDir": "lib",
     "sourceMap": true,
     "strict": true,
@@ -12,7 +13,11 @@
     ],
     "types": [
       "node"
-    ]
+    ],
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "allowUnreachableCode": true,
+    "allowUnusedLabels": true,
   },
   "compileOnSave": true,
   "include": [

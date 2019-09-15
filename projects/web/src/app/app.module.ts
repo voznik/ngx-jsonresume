@@ -1,12 +1,12 @@
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NgModule } from '@angular/core';
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 // App
 import { SharedUiModule } from 'shared-ui';
 import { environment } from '../environments/environment';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
 
@@ -20,10 +20,10 @@ import { SharedModule } from './shared/shared.module';
     CoreModule.forRoot(),
     SharedModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
-      enabled: environment.production
-    })
+      enabled: environment.production,
+    }),
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {}

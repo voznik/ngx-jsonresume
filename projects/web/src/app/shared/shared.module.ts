@@ -1,10 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { TranslateModule } from '@ngx-translate/core';
 import { NgxJsonresumeModule } from 'ngx-jsonresume';
 import { SharedUiModule } from 'shared-ui';
-import { TranslateModule } from '@ngx-translate/core';
-import { RouterModule } from '@angular/router';
 
 @NgModule({
   imports: [
@@ -14,7 +14,7 @@ import { RouterModule } from '@angular/router';
     ReactiveFormsModule,
     TranslateModule,
     SharedUiModule,
-    NgxJsonresumeModule
+    NgxJsonresumeModule,
   ],
   declarations: [
     // ShellComponent
@@ -25,14 +25,14 @@ import { RouterModule } from '@angular/router';
     ReactiveFormsModule,
     TranslateModule,
     SharedUiModule,
-    NgxJsonresumeModule
+    NgxJsonresumeModule,
     // ShellComponent
-  ]
+  ],
 })
 export class SharedModule {
   public static forRoot(): ModuleWithProviders {
     return {
-      ngModule: SharedModule
+      ngModule: SharedModule,
     };
   }
 }

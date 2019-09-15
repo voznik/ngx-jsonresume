@@ -1,5 +1,9 @@
 import { CommonModule } from '@angular/common';
-import { HttpClientModule, HTTP_INTERCEPTORS, HttpClient } from '@angular/common/http';
+import {
+  HttpClientModule,
+  HTTP_INTERCEPTORS,
+  HttpClient,
+} from '@angular/common/http';
 import {
   ErrorHandler,
   NgModule,
@@ -9,18 +13,18 @@ import {
 } from '@angular/core';
 // Firebase imports
 import { AngularFireModule } from '@angular/fire';
-import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
-import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 // App
 import { environment as env } from '@app/env/environment';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import {
   AppService,
   AppErrorHandler,
   HttpErrorInterceptor,
   LocalStorageService,
-  TitleService
+  TitleService,
 } from './services';
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -44,9 +48,9 @@ export function HttpLoaderFactory(http: HttpClient) {
       loader: {
         provide: TranslateLoader,
         useFactory: HttpLoaderFactory,
-        deps: [HttpClient]
-      }
-    })
+        deps: [HttpClient],
+      },
+    }),
   ],
 })
 export class CoreModule {
@@ -67,12 +71,12 @@ export class CoreModule {
         {
           provide: HTTP_INTERCEPTORS,
           useClass: HttpErrorInterceptor,
-          multi: true
+          multi: true,
         },
         AppService,
         LocalStorageService,
-        TitleService
-      ]
+        TitleService,
+      ],
     };
   }
 }

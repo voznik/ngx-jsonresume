@@ -1,18 +1,25 @@
+import { CommonModule } from '@angular/common';
 import {
   NgModule,
   Optional,
   SkipSelf,
-  ModuleWithProviders
+  ModuleWithProviders,
 } from '@angular/core';
+import { RouterModule } from '@angular/router';
+import { TranslateModule } from '@ngx-translate/core';
 import { ShellComponent } from './components';
 import { MaterialModule } from './material.module';
 import { AnimationsService, NotificationService } from './services';
-import { TranslateModule } from '@ngx-translate/core';
-import { RouterModule } from '@angular/router';
-import { CommonModule } from '@angular/common';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
+import {
+  faGithub,
+  faMediumM,
+  faTwitter,
+  faInstagram,
+  faYoutube,
+} from '@fortawesome/free-brands-svg-icons';
 import {
   faBars,
   faUserCircle,
@@ -36,15 +43,8 @@ import {
   faLightbulb,
   faWindowMaximize,
   faStream,
-  faBook
+  faBook,
 } from '@fortawesome/free-solid-svg-icons';
-import {
-  faGithub,
-  faMediumM,
-  faTwitter,
-  faInstagram,
-  faYoutube
-} from '@fortawesome/free-brands-svg-icons';
 
 library.add(
   faBars,
@@ -84,9 +84,9 @@ library.add(
     MaterialModule,
     FontAwesomeModule,
     RouterModule,
-    TranslateModule
+    TranslateModule,
   ],
-  exports: [ShellComponent, MaterialModule, FontAwesomeModule]
+  exports: [ShellComponent, MaterialModule, FontAwesomeModule],
 })
 export class SharedUiModule {
   /* constructor(@Optional() @SkipSelf() parentModule: SharedUiModule) {
@@ -100,7 +100,7 @@ export class SharedUiModule {
   public static forRoot(): ModuleWithProviders {
     return {
       ngModule: SharedUiModule,
-      providers: [AnimationsService, NotificationService]
+      providers: [AnimationsService, NotificationService],
     };
   }
 }

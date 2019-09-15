@@ -1,3 +1,4 @@
+// tslint:disable:use-component-view-encapsulation
 import { Component, ViewEncapsulation } from '@angular/core';
 import { routeAnimations } from 'shared-ui';
 
@@ -18,10 +19,7 @@ import { routeAnimations } from 'shared-ui';
     </nav>
 
     <nav class="nav-responsive d-sm-none d-flex justify-content-center">
-      <mat-select
-        [placeholder]="'routes.title' | translate"
-        [value]="'todos'"
-      >
+      <mat-select [placeholder]="'routes.title' | translate" [value]="'todos'">
         <mat-option *ngFor="let e of routes" [value]="e" [routerLink]="e.link">
           <!--[disabled]="e.auth && !(isAuthenticated$ | async)"-->
           {{ e.label | translate }}
@@ -29,7 +27,8 @@ import { routeAnimations } from 'shared-ui';
       </mat-select>
     </nav>
 
-    <div class="wrap"
+    <div
+      class="wrap"
       [@routeAnimations]="o.isActivated && o.activatedRoute.routeConfig.path"
     >
       <router-outlet #o="outlet"></router-outlet>
@@ -37,12 +36,12 @@ import { routeAnimations } from 'shared-ui';
   `,
   styles: [``],
   animations: [routeAnimations],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
 })
 export class ResumeComponent {
   routes = [
     { label: 'Editor', link: 'editor' },
-    { label: 'Viewer', link: 'viewer' }
+    { label: 'Viewer', link: 'viewer' },
   ];
 
   constructor() {}

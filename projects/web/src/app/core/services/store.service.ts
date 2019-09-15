@@ -1,7 +1,7 @@
 // tslint:disable:array-type
 import { Injectable } from '@angular/core';
-import { pluck } from 'rxjs/operators';
 import { Observable, BehaviorSubject } from 'rxjs';
+import { pluck } from 'rxjs/operators';
 
 export abstract class StoreService<T extends BaseState> {
   initialState: T;
@@ -20,7 +20,10 @@ export abstract class StoreService<T extends BaseState> {
   }
 
   select<K extends StateProps<T>>(key: K): Observable<T[K]>;
-  select<K extends StateProps<T>, P extends keyof T[K]>(key: K, nested: P): Observable<T[K][P]>;
+  select<K extends StateProps<T>, P extends keyof T[K]>(
+    key: K,
+    nested: P
+  ): Observable<T[K][P]>;
   select(...keys) {
     return this._state$.pipe(pluck(...keys));
   }
@@ -36,7 +39,7 @@ export abstract class StoreService<T extends BaseState> {
   changeState<K extends keyof T>(key: K, value: T[K]): void {
     this._state$.next({
       ...(this.state as any),
-      [key]: value
+      [key]: value,
     });
   }
 
@@ -45,7 +48,7 @@ export abstract class StoreService<T extends BaseState> {
   }
 }
 
-type StateProps<T> = Extract<(keyof T), string>;
+type StateProps<T> = Extract<keyof T, string>;
 
 export interface BaseState {
   loading?: boolean;

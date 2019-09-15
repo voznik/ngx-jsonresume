@@ -1,4 +1,4 @@
-// tslint:disable:component-selector
+// tslint:disable:use-component-view-encapsulation component-selector
 import { Component, ViewEncapsulation } from '@angular/core';
 import { FieldArrayType } from '@ngx-formly/core';
 
@@ -9,7 +9,9 @@ import { FieldArrayType } from '@ngx-formly/core';
     <div class="row">
       <div class="col-sm-10">
         <h4 class="label" *ngIf="to.label">{{ to.label }}</h4>
-        <mat-hint class="description" *ngIf="to.description">{{ to.description }}</mat-hint>
+        <mat-hint class="description" *ngIf="to.description">{{
+          to.description
+        }}</mat-hint>
       </div>
       <div class="col-sm-2 p-1 f-c">
         <button mat-raised-button color="primary" type="button" (click)="add()">
@@ -39,6 +41,6 @@ import { FieldArrayType } from '@ngx-formly/core';
       </div>
     </div>
   `,
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
 })
 export class ArrayTypeComponent extends FieldArrayType {}

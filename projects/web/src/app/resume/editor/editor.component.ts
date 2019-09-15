@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-import { ResumeDataService } from '../resume-data.service';
-import { tap } from 'rxjs/operators';
 import { isObject } from '@terminus/ngx-tools/type-guards';
+import { Observable } from 'rxjs';
+import { tap } from 'rxjs/operators';
+import { ResumeDataService } from '../resume-data.service';
 
 @Component({
   selector: 'app-editor',
   templateUrl: './editor.component.html',
-  styleUrls: ['./editor.component.scss']
+  styleUrls: ['./editor.component.scss'],
 })
 export class EditorComponent implements OnInit {
   model: any;

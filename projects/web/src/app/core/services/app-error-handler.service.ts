@@ -1,5 +1,5 @@
-import { Injectable, ErrorHandler, isDevMode } from '@angular/core';
 import { HttpErrorResponse } from '@angular/common/http';
+import { Injectable, ErrorHandler, isDevMode } from '@angular/core';
 
 import { environment as env } from '@app/env/environment';
 

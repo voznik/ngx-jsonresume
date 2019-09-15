@@ -94,8 +94,12 @@
           }
         },
         "test": {
-          "builder": "@angular-devkit/build-angular:karma",
+          "builder": "@angular-builders/custom-webpack:karma",
           "options": {
+            "customWebpackConfig": {
+              "path": "projects/web/extra-webpack.config.js",
+              "mergeStrategies": { "externals": "replace" }
+            },
             "main": "projects/web/src/test.ts",
             "polyfills": "projects/web/src/polyfills.ts",
             "tsConfig": "projects/web/tsconfig.spec.json",

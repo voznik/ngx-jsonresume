@@ -1,16 +1,16 @@
 // tslint:disable:no-string-literal
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { JSONSchema4 } from 'json-schema';
 import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 import freshresumeSchema from '../assets/freshresume.schema.json';
 import jsonresumeSchema from '../assets/jsonresume.schema.json';
 import exampleResume from '../assets/resume.json';
-import { JSONSchema4 } from 'json-schema';
 
 enum SchemaType {
   JSR = 'jsonresume',
-  FRESH = 'freshresume'
+  FRESH = 'freshresume',
 }
 
 @Injectable()

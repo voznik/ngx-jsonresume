@@ -13,12 +13,17 @@
     "serve:ssr": "node dist/web-webpack/server.js",
     "build:prod": "ng build web --prod && npm run build:ssr && npm run build:functions && npm run copy:hosting",
     "copy:hosting": "node ./tools/copy-dist.js",
-    "build:functions": "cd functions; npm install; cd -; npm run --prefix functions build",
-    "bnd": "npm run build:prod && firebase deploy --force",
-    "ci": "npm run format:test && ng lint && ng test --configuration=test --browsers ChromeTravisCi --code-coverage && npm run e2e && npm run build:prod",
+    "build:functions": "cd functions; npm install && npm run build",
+    "deploy": "npm run build:prod && firebase deploy --force",
+    "ci": "npm run format:test && ng lint && ng test --browsers ChromeTravisCi --code-coverage && npm run build:prod",
     "format:write": "prettier projects/**/*.{ts,md,scss} functions/**/*.ts --write",
-    "format:test": "prettier projects/**/*.{ts,md,scss} functions/**/*.ts --list-different",
+    "format:test": "prettier projects/**/*.{ts,md,scss} functions/**/*.ts --list-different && ng lint",
     "analyze": "npm run build --prod --stats-json && webpack-bundle-analyzer ./dist/web/stats-es2015.json"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged && ng lint --fix"
+    }
   },
   "private": true,
   "dependencies": {
@@ -72,6 +77,7 @@
     "firebase-admin": "^8.4.0",
     "firebase-functions": "^3.2.0",
     "fs-extra": "^8.1.0",
+    "husky": "^3.0.5",
     "jasmine-core": "~3.4.0",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~4.1.0",
@@ -90,8 +96,10 @@
     "tsickle": "^0.36.0",
     "tslib": "^1.10.0",
     "tslint": "~5.15.0",
+    "tslint-angular": "^3.0.2",
+    "tslint-config-prettier": "^1.18.0",
     "typescript": "~3.5.3",
-    "webpack-cli": "^3.3.7",
-    "webpack-bundle-analyzer": "^3.3.2"
+    "webpack-bundle-analyzer": "^3.3.2",
+    "webpack-cli": "^3.3.7"
   }
 }

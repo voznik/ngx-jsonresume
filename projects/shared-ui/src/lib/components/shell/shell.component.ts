@@ -1,21 +1,21 @@
+// tslint:disable:use-component-view-encapsulation component-selector
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import {
   Component,
   Input,
   Output,
   EventEmitter,
   ViewEncapsulation,
-  isDevMode
+  isDevMode,
 } from '@angular/core';
-import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 
 @Component({
-  // tslint:disable-next-line:component-selector
   selector: 'app-shell',
   templateUrl: './shell.component.html',
   styleUrls: ['./shell.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
 })
 export class ShellComponent {
   @Input() logo;
@@ -42,7 +42,5 @@ export class ShellComponent {
       shareReplay()
     );
 
-  constructor(
-    private breakpointObserver: BreakpointObserver,
-  ) {}
+  constructor(private breakpointObserver: BreakpointObserver) {}
 }

@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { environment as env } from '@app/env/environment';
-import { routeAnimations, AnimationsService } from 'shared-ui';
 import { Observable } from 'rxjs';
+import { routeAnimations, AnimationsService } from 'shared-ui';
 import { AppService } from './core/services';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  animations: [routeAnimations]
+  animations: [routeAnimations],
 })
 export class AppComponent implements OnInit {
   isProd = env.production;
@@ -17,11 +17,11 @@ export class AppComponent implements OnInit {
   languages = ['en'];
   navigation = [
     { link: 'about', label: 'menu.about' },
-    { link: 'resume', label: 'menu.examples' }
+    { link: 'resume', label: 'menu.examples' },
   ];
   navigationSideMenu = [
     ...this.navigation,
-    { link: 'settings', label: 'menu.settings' }
+    { link: 'settings', label: 'menu.settings' },
   ];
   logo = require('../assets/logo.png');
   isAuthenticated$: Observable<boolean>;
@@ -31,7 +31,7 @@ export class AppComponent implements OnInit {
 
   constructor(
     private app: AppService,
-    private animationsService: AnimationsService,
+    private animationsService: AnimationsService
   ) {
     this.app.init();
   }
@@ -41,7 +41,6 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
     if (AppComponent.isIEorEdgeOrSafari()) {
       this.animationsService.updateRouteAnimationType(false, false);
     }
