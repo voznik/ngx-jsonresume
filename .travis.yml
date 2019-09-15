@@ -8,6 +8,9 @@ addons:
 cache:
   directories:
     - $HOME/.npm
+env:
+- NODE_ENV=dev
+- FIREBASE_TOKEN=$FIREBASE_TOKEN
 before_install:
   - export CHROME_BIN=chromium-browser
   - export DISPLAY=:99.0
