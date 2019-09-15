@@ -8,7 +8,6 @@ import { SharedUiModule } from 'shared-ui';
 import { ResumeDataService } from '../resume-data.service';
 import { ViewerComponent } from './viewer.component';
 
-
 describe('ViewerComponent', () => {
   let component: ViewerComponent;
   let fixture: ComponentFixture<ViewerComponent>;

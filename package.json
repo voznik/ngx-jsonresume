@@ -16,7 +16,7 @@
     "build:functions": "cd functions; npm install && npm run build",
     "deploy": "npm run build:prod && firebase deploy --force",
     "ci": "npm run format:test && ng lint && ng test --browsers ChromeTravisCi --code-coverage && npm run build:prod",
-    "format:write": "prettier projects/**/*.{ts,md,scss} functions/**/*.ts --write",
+    "format:write": "prettier projects/**/*.{ts,md,scss} --write",
     "format:test": "prettier projects/**/*.{ts,md,scss} --list-different && ng lint",
     "analyze": "npm run build --prod --stats-json && webpack-bundle-analyzer ./dist/web/stats-es2015.json"
   },

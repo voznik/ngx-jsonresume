@@ -9,8 +9,7 @@ import { SharedUiModule } from 'shared-ui';
 import { ResumeDataService } from '../resume-data.service';
 import { EditorComponent } from './editor.component';
 
-let resumeDataServiceStub: Partial<ResumeDataService>
-
+let resumeDataServiceStub: Partial<ResumeDataService>;
 
 describe('EditorComponent', () => {
   let component: EditorComponent;
