@@ -1,7 +1,6 @@
 import { OverlayContainer } from '@angular/cdk/overlay';
 import { Platform } from '@angular/cdk/platform';
 import { Injectable } from '@angular/core';
-import { AngularFireAuth } from '@angular/fire/auth';
 import { ActivationEnd, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { filter, tap, distinctUntilChanged } from 'rxjs/operators';
@@ -48,7 +47,6 @@ export const initialState: State = {
 @Injectable()
 export class AppService extends StoreService<State> {
   constructor(
-    public afAuth: AngularFireAuth,
     private platform: Platform,
     private overlayContainer: OverlayContainer,
     private router: Router,

@@ -18,7 +18,7 @@ export class AuthService {
 
   logout(): void {
     sessionStorage.removeItem('session-alive');
-    this.token = null;
+    delete this.token;
     this.router.navigate(['/']);
   }
 

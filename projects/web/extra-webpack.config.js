@@ -6,8 +6,8 @@ const pkg = require('../../package.json');
 module.exports = (config, options) => {
   config.plugins.push(
     new Dotenv({
+      defaults: true, // load .env.defaults
       systemvars: true, // load all the predefined 'process.env' variables which will trump anything local per dotenv specs.
-      safe: true, // load .env.example (defaults to "false" which does not use dotenv-safe)
     })
   );
   config.plugins.push(

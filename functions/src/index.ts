@@ -1,4 +1,4 @@
-import cors = require('cors');
+import * as _cors from 'cors';
 import * as admin from 'firebase-admin';
 import * as functions from 'firebase-functions';
 
@@ -6,9 +6,11 @@ import { functionsConfig } from './functions-config';
 import { validateResume, buildResume } from './resume.function';
 
 // CORS configuration.
-const options: cors.CorsOptions = {
+const options: _cors.CorsOptions = {
   origin: functionsConfig.whitelist,
 };
+
+const cors = _cors.default;
 
 // Initializes Cloud Functions.
 admin.initializeApp(functions.config().firebase);
