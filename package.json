@@ -63,7 +63,7 @@
   },
   "devDependencies": {
     "@angular-builders/custom-webpack": "^8.2.0",
-    "@angular-devkit/build-angular": "~0.803.0",
+    "@angular-devkit/build-angular": "~15.0.0",
     "@angular-devkit/build-ng-packagr": "~0.803.0",
     "@angular/cli": "~8.3.0",
     "@angular/compiler-cli": "~8.2.3",
@@ -101,6 +101,6 @@
     "tslint-config-prettier": "^1.18.0",
     "typescript": "~3.5.3",
     "webpack-bundle-analyzer": "^3.3.2",
-    "webpack-cli": "^3.3.7"
+    "webpack-cli": "^3.3.12"
   }
 }
